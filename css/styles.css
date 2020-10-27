@@ -9,19 +9,16 @@ body {
 header {
   background-color: rgb(99, 179, 186);
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
 }
 
 label,
 input,
 textarea {
-  display: flex;
   width: 100%;
 }
 
 label {
+  display: block;
   font-size: 1rem;
   font-weight: 600;
   padding-bottom: 0.75rem;
@@ -58,12 +55,19 @@ button {
   justify-content: flex-end;
 }
 
+.container-header {
+  max-width: 575px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
 .app-name {
+  max-width: 575px;
   font-family: 'Montserrat Alternates', Helvetica, Arial, sans-serif;
   font-weight: 500;
-  font-size: 1.35rem;
-  max-width: 575px;
-  margin: 1rem 1.5rem;
+  font-size: 1.15rem;
+  margin: 0;
+  padding: 0.5rem 0;
   color: white;
 }
 
@@ -97,9 +101,4 @@ textarea:focus,
 button:focus {
   outline: none;
   box-shadow: 0 0 5px rgb(42, 82, 94);
-}
-
-.form-input.avatar > input {
-  background-image: url() no-repeat scroll 7px 7px;
-  padding-left: 30px;
 }

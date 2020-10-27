@@ -12,7 +12,6 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
 }
 
 .column-full,
@@ -21,13 +20,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  h2 {
-    max-width: 900px;
-    padding: 0 0.75rem;
-  }
-
   .container {
     max-width: 900px;
+  }
+
+  .container-header {
+    margin: 0 0.9rem;
   }
 
   .column-full,
@@ -38,4 +36,5 @@
   .column-half {
     width: 50%;
   }
+
 }

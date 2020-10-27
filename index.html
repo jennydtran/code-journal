@@ -18,18 +18,23 @@
 </head>
 <body>
   <header>
-    <h2 class="app-name">Code Journal</h2>
+    <div class="container-header">
+      <h2 class="app-name">Code Journal</h2>
+    </div>
   </header>
   <div class="container">
     <main>
+      <div class="row">
+          <h1 class="column-full section-heading">Edit Profile</h1>
+      </div>
       <div data-view="edit-profile">
-        <h1 class="section-heading column-full">Edit Profile</h1>
-        <div class="row">
-          <div class="div-avatar-image column-half">
-            <img class="image-avatar-placeholder" src="images/placeholder-image-square.jpg" alt="Code Journal Avatar" placeholder="">
-          </div>
-          <form class="form column-half" action="" method="">
-            <fieldset>
+        <form action="" method="">
+          <div class="row">
+            <div class="column-half div-avatar-image">
+              <img class="image-avatar-placeholder" src="images/placeholder-image-square.jpg" alt="Code Journal Avatar"
+                    placeholder="">
+            </div>
+            <div class="column-half">
               <div class="form-input avatar">
                 <label for="avatarUrl">Avatar URL</label>
                 <input type="url" name="avatarUrl" required>
@@ -38,7 +43,7 @@
                 <label for="username">Username</label>
                 <input type="text" name="username" required>
               </div>
-              <div class="form-input fullname">
+              <div class="form-input fullName">
                 <label for="fullName">Full Name</label>
                 <input type="text" name="fullName" required>
               </div>
@@ -46,16 +51,20 @@
                 <label for="location">Location</label>
                 <input type="text" name="location" required>
               </div>
-            </fieldset>
-          </form>
-        </div>
-        <div class="form-input bio column-full">
-          <label for="bio">Bio</label>
-          <textarea name="bio" rows="5" required></textarea>
-        </div>
-        <div class="savebutton column-full">
-          <button type="button">SAVE</button>
-        </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <div class="form-input bio">
+                <label for="bio">Bio</label>
+                <textarea name="bio" rows="5" required></textarea>
+              </div>
+              <div class="form-input savebutton">
+                <button type="submit">SAVE</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </main>
   </div>
