@@ -1,12 +1,105 @@
-/* --- for font
 body {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-family: 'Raleway', sans-serif;
+  padding: 0;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: black;
+  background-color: rgb(241, 248, 248);
 }
 
-/* --- possible accent color
-
-h1 {
-  background-color: 99, 179, 186;
+header {
+  background-color: rgb(99, 179, 186);
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-*/
+
+label,
+input,
+textarea {
+  display: flex;
+  width: 100%;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+}
+
+input,
+textarea {
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  border: 1px solid grey;
+  padding: 0.5rem 0.5rem;
+  background-color: white;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: rgb(99, 179, 186);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+.savebutton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.app-name {
+  font-family: 'Montserrat Alternates', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.35rem;
+  max-width: 575px;
+  margin: 1rem 1.5rem;
+  color: white;
+}
+
+.section-heading {
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin: 2rem 0;
+}
+
+.form-input {
+  margin: 2.2rem 0;
+}
+
+.form-input.bio {
+  margin-top: 0;
+}
+
+.div-avatar-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.div-avatar-image > .image-avatar-placeholder {
+  border-radius: 4px;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgb(42, 82, 94);
+}
+
+.form-input.avatar > input {
+  background-image: url() no-repeat scroll 7px 7px;
+  padding-left: 30px;
+}

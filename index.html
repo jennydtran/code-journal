@@ -9,18 +9,56 @@
     crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600;800&family=Raleway&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600&family=Raleway:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
   <header>
+    <h2 class="app-name">Code Journal</h2>
   </header>
-  <main>
-    <div data-view="edit-profile"></div>
-  </main>
+  <div class="container">
+    <main>
+      <div data-view="edit-profile">
+        <h1 class="section-heading column-full">Edit Profile</h1>
+        <div class="row">
+          <div class="div-avatar-image column-half">
+            <img class="image-avatar-placeholder" src="images/placeholder-image-square.jpg" alt="Code Journal Avatar" placeholder="">
+          </div>
+          <form class="form column-half" action="" method="">
+            <fieldset>
+              <div class="form-input avatar">
+                <label for="avatarUrl">Avatar URL</label>
+                <input type="url" name="avatarUrl" required>
+              </div>
+              <div class="form-input username">
+                <label for="username">Username</label>
+                <input type="text" name="username" required>
+              </div>
+              <div class="form-input fullname">
+                <label for="fullName">Full Name</label>
+                <input type="text" name="fullName" required>
+              </div>
+              <div class="form-input location">
+                <label for="location">Location</label>
+                <input type="text" name="location" required>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="form-input bio column-full">
+          <label for="bio">Bio</label>
+          <textarea name="bio" rows="5" required></textarea>
+        </div>
+        <div class="savebutton column-full">
+          <button type="button">SAVE</button>
+        </div>
+      </div>
+    </main>
+  </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
