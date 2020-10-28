@@ -5,6 +5,7 @@
 .container {
   max-width: 575px;
   margin: 0 auto;
+  margin-bottom: 1.5rem;
   padding: 0 1.5rem;
 }
 
@@ -21,6 +22,10 @@
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
+  }
+
+  .container-header {
+    margin: 0 0.9rem;
   }
 
   .column-full,
