@@ -11,7 +11,7 @@ var data = {
   },
   entries: []
 };
-/*
+
 var userProfileData = localStorage.getItem('javascript-local-storage');
 
 if (userProfileData !== null) {
@@ -22,4 +22,3 @@ window.addEventListener('beforeunload', function (event) {
   var dataJson = JSON.stringify(data, null, 1);
   localStorage.setItem('javascript-local-storage', dataJson);
 });
-*/
