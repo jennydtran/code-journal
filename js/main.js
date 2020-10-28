@@ -143,5 +143,14 @@ function viewSwapDataViews(dataView) {
     main.removeChild(document.querySelector('div[data-view="profile"]'));
     main.appendChild(profileDOM(data));
   }
-
 }
+
+// eventListener for DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function (event) {
+  if (data.profile.username === ' ') {
+    viewSwapDataViews('edit-profile');
+  } else if (data.profile.username) {
+    viewSwapDataViews(data.view);
+  }
+
+});
