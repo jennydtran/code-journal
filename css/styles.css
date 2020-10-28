@@ -1,7 +1,7 @@
 body {
   padding: 0;
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   color: black;
   background-color: rgb(241, 248, 248);
 }
@@ -55,6 +55,20 @@ button {
   justify-content: flex-end;
 }
 
+h3 {
+  margin: 0;
+  padding-left: 0.3rem;
+}
+
+p {
+  margin-top: 1.5rem;
+  line-height: 1.8rem;
+}
+
+i {
+  color: rgb(99, 179, 186);
+}
+
 .container-header {
   max-width: 575px;
   margin: 0 auto;
@@ -94,6 +108,20 @@ button {
 .div-avatar-image > .image-avatar {
   border-radius: 4px;
   width: 100%;
+}
+
+.icon-container {
+  width: 40px;
+}
+
+.fa-map-marker-alt {
+  padding-left: 4px;
+}
+
+.row.section-username,
+.row.section-location {
+  align-items: center;
+  margin-top: 1.5rem;
 }
 
 input:focus,
