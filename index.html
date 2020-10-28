@@ -29,41 +29,43 @@
       </div>
       <div data-view="edit-profile">
         <form action="" method="">
-          <div class="row">
-            <div class="column-half div-avatar-image">
-              <img class="image-avatar-placeholder" src="images/placeholder-image-square.jpg" alt="Code Journal Avatar"
-                    placeholder="">
-            </div>
-            <div class="column-half">
-              <div class="form-input avatar">
-                <label for="avatarUrl">Avatar URL</label>
-                <input type="url" name="avatarUrl" required>
+          <fieldset>
+            <div class="row">
+              <div class="column-half div-avatar-image">
+                <img class="image-avatar hidden" alt="Code Journal Avatar" id="image-preview">
+                <img class="image-avatar placeholder" src="images/placeholder-image-square.jpg" alt="Code Journal avatar default" id="image-placeholder">
               </div>
-              <div class="form-input username">
-                <label for="username">Username</label>
-                <input type="text" name="username" required>
-              </div>
-              <div class="form-input fullName">
-                <label for="fullName">Full Name</label>
-                <input type="text" name="fullName" required>
-              </div>
-              <div class="form-input location">
-                <label for="location">Location</label>
-                <input type="text" name="location" required>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column-full">
-              <div class="form-input bio">
-                <label for="bio">Bio</label>
-                <textarea name="bio" rows="5" required></textarea>
-              </div>
-              <div class="form-input savebutton">
-                <button type="submit">SAVE</button>
+              <div class="column-half">
+                <div class="form-input avatar">
+                  <label for="avatarUrl">Avatar URL</label>
+                  <input type="url" name="avatarUrl" required>
+                </div>
+                <div class="form-input username">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" required>
+                </div>
+                <div class="form-input fullName">
+                  <label for="fullName">Full Name</label>
+                  <input type="text" name="fullName" required>
+                </div>
+                <div class="form-input location">
+                  <label for="location">Location</label>
+                  <input type="text" name="location" required>
+                </div>
               </div>
             </div>
-          </div>
+            <div class="row">
+              <div class="column-full">
+                <div class="form-input bio">
+                  <label for="bio">Bio</label>
+                  <textarea name="bio" rows="5" required></textarea>
+                </div>
+                <div class="form-input savebutton">
+                  <button name="submitSave" type="submit">SAVE</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </form>
       </div>
     </main>

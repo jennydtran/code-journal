@@ -1,51 +1,26 @@
+// queried DOM for some elements that might be needed
 var avatarUrl = document.forms[0].avatarUrl;
-console.log('avatarURL', avatarUrl);
-var username = document.forms[0].username;
-console.log('username', username);
-var fullName = document.forms[0].fullName;
-console.log('fullName', fullName);
-var userLocation = document.forms[0].location;
-console.log('location', userLocation);
-var bio = document.forms[0].bio;
-console.log('bio', bio);
-
-function handleFocus(event) {
-  console.log('focus event fired');
-  console.log('  event.target.name', event.target.name);
-}
-
-function handleBlur(event) {
-  console.log('blur event fired');
-  console.log('  event.target.name', event.target.name);
-}
-
-function handleInput(event) {
-  console.log('value of ' + event.target.name + ' ' + event.target.value);
-}
-
-avatarUrl.addEventListener('focus', handleFocus);
-avatarUrl.addEventListener('blur', handleBlur);
-avatarUrl.addEventListener('input', handleInput);
-
-username.addEventListener('focus', handleFocus);
-username.addEventListener('blur', handleBlur);
-username.addEventListener('input', handleInput);
-
-fullName.addEventListener('focus', handleFocus);
-fullName.addEventListener('blur', handleBlur);
-fullName.addEventListener('input', handleInput);
-
-userLocation.addEventListener('focus', handleFocus);
-userLocation.addEventListener('blur', handleBlur);
-userLocation.addEventListener('input', handleInput);
-
-bio.addEventListener('focus', handleFocus);
-bio.addEventListener('blur', handleBlur);
-bio.addEventListener('input', handleInput);
-
+var imagePreview = document.querySelector('#image-preview');
+var imagePlaceholder = document.querySelector('#image-placeholder');
 var createProfileForm = document.querySelector('form');
-console.log('createProfileForm', createProfileForm);
 
+// change avatar placeholder to preview of new avatar
+function handleInputAvatar(event) {
+  var urlString = event.target.value;
+  imagePreview.setAttribute('src', urlString);
+
+  if (urlString) {
+    imagePreview.className = 'image-avatar';
+    imagePlaceholder.className = 'image-avatar hidden';
+  } else {
+    imagePreview.className = 'image-avatar hidden';
+    imagePlaceholder.className = 'image-avatar';
+  }
+}
+
+avatarUrl.addEventListener('input', handleInputAvatar);
+
+// addEventListener for 'submit'
 createProfileForm.addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -55,8 +30,13 @@ createProfileForm.addEventListener('submit', function (event) {
   var userLocation = document.forms[0].location.value;
   var bio = document.forms[0].bio.value;
 
-  var data = { avatarUrl, username, fullName, userLocation, bio};
-  console.log('messageData:', data);
+  data.profile.username = username;
+  data.profile.fullName = fullName;
+  data.profile.location = userLocation;
+  data.profile.avatarUrl = avatarUrl;
+  data.profile.bio = bio;
 
+  imagePreview.className = 'image-avatar hidden';
+  imagePlaceholder.className = 'image-avatar';
   createProfileForm.reset();
 });

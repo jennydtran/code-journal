@@ -91,7 +91,7 @@ button {
   object-fit: contain;
 }
 
-.div-avatar-image > .image-avatar-placeholder {
+.div-avatar-image > .image-avatar {
   border-radius: 4px;
   width: 100%;
 }
