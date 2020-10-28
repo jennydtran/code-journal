@@ -152,5 +152,4 @@ document.addEventListener('DOMContentLoaded', function (event) {
   } else if (data.profile.username) {
     viewSwapDataViews(data.view);
   }
-
 });
