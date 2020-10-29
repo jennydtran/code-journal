@@ -164,14 +164,16 @@ function viewSwapDataViews(dataView) {
     document.forms[0].location.value = data.profile.location;
     document.forms[0].bio.value = data.profile.bio;
 
-    imagePlaceholder.src = data.profile.avatarUrl;
+    if (data.profile.username !== '') {
+      imagePlaceholder.src = data.profile.avatarUrl;
+    }
   }
 
 }
 
 // eventListener for DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function (event) {
-  if (data.profile.username === ' ') {
+  if (data.profile.username === '') {
     viewSwapDataViews('edit-profile');
   } else if (data.profile.username) {
     viewSwapDataViews(data.view);
@@ -185,8 +187,10 @@ document.addEventListener('click', function (event) {
     return;
   }
 
-  if (event.target.tagName === 'A' && data.profile.username) {
+  if (data.profile.username !== '') {
     viewSwapDataViews(event.target.getAttribute('data-view'));
+  } else {
+    viewSwapDataViews('edit-profile');
   }
 
 });
