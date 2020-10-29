@@ -1,21 +1,12 @@
 // queried DOM for some elements that might be needed
 var avatarUrl = document.forms[0].avatarUrl;
-var imagePreview = document.querySelector('#image-preview');
-var imagePlaceholder = document.querySelector('#image-placeholder');
+var imageAvatar = document.querySelector('#image-avatar');
 var createProfileForm = document.querySelector('form');
 
 // change avatar placeholder to preview of new avatar
 function handleInputAvatar(event) {
   var urlString = event.target.value;
-  imagePreview.setAttribute('src', urlString);
-
-  if (urlString) {
-    imagePreview.className = 'image-avatar';
-    imagePlaceholder.className = 'image-avatar hidden';
-  } else {
-    imagePreview.className = 'image-avatar hidden';
-    imagePlaceholder.className = 'image-avatar';
-  }
+  imageAvatar.src = urlString;
 }
 
 avatarUrl.addEventListener('input', handleInputAvatar);
@@ -35,9 +26,6 @@ createProfileForm.addEventListener('submit', function (event) {
   data.profile.location = userLocation;
   data.profile.avatarUrl = avatarUrl;
   data.profile.bio = bio;
-
-  imagePreview.className = 'image-avatar hidden';
-  imagePlaceholder.className = 'image-avatar';
 
   viewSwapDataViews('profile');
 });
@@ -165,7 +153,7 @@ function viewSwapDataViews(dataView) {
     document.forms[0].bio.value = data.profile.bio;
 
     if (data.profile.username !== '') {
-      imagePlaceholder.src = data.profile.avatarUrl;
+      imageAvatar.src = data.profile.avatarUrl;
     }
   }
 
