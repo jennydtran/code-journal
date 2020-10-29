@@ -1,14 +1,14 @@
 body {
   padding: 0;
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 15.5px;
   color: black;
   background-color: rgb(241, 248, 248);
 }
 
 header {
   background-color: rgb(99, 179, 186);
-  width: 100%;
+  margin: 0 auto;
 }
 
 label,
@@ -40,6 +40,22 @@ fieldset {
   padding: 0;
 }
 
+h3 {
+  margin: 0;
+  padding-left: 0.3rem;
+}
+
+p {
+  margin-top: 1.5rem;
+  line-height: 1.8rem;
+  white-space: pre-wrap;
+}
+
+i {
+  color: rgb(99, 179, 186);
+}
+
+.button,
 button {
   background-color: rgb(99, 179, 186);
   border: none;
@@ -50,36 +66,31 @@ button {
   color: white;
 }
 
+.button {
+  margin-top: 0.7rem;
+}
+
 .savebutton {
   display: flex;
   justify-content: flex-end;
 }
 
-h3 {
-  margin: 0;
-  padding-left: 0.3rem;
-}
-
-p {
-  margin-top: 1.5rem;
-  line-height: 1.8rem;
-}
-
-i {
-  color: rgb(99, 179, 186);
+.editbutton-profile {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .container-header {
   max-width: 575px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  align-items: center;
 }
 
 .app-name {
-  max-width: 575px;
   font-family: 'Montserrat Alternates', Helvetica, Arial, sans-serif;
   font-weight: 500;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   margin: 0;
   padding: 0.5rem 0;
   color: white;
@@ -88,7 +99,7 @@ i {
 .section-heading {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   font-weight: 600;
-  font-size: 1.75rem;
+  font-size: 1.95rem;
   margin: 2rem 0;
 }
 
@@ -129,4 +140,21 @@ textarea:focus,
 button:focus {
   outline: none;
   box-shadow: 0 0 5px rgb(42, 82, 94);
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+}
+
+a:hover {
+  transform: scale(1.03);
+}
+
+div.row.container-header > a {
+  padding-left: 0.75rem;
 }

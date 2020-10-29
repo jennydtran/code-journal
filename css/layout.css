@@ -25,7 +25,11 @@
   }
 
   .container-header {
-    margin: 0 0.9rem;
+    max-width: 900px;
+  }
+
+  .app-name {
+    margin: 0 0.75rem;
   }
 
   .column-full,

@@ -1,21 +1,12 @@
 // queried DOM for some elements that might be needed
 var avatarUrl = document.forms[0].avatarUrl;
-var imagePreview = document.querySelector('#image-preview');
-var imagePlaceholder = document.querySelector('#image-placeholder');
+var imageAvatar = document.querySelector('#image-avatar');
 var createProfileForm = document.querySelector('form');
 
 // change avatar placeholder to preview of new avatar
 function handleInputAvatar(event) {
   var urlString = event.target.value;
-  imagePreview.setAttribute('src', urlString);
-
-  if (urlString) {
-    imagePreview.className = 'image-avatar';
-    imagePlaceholder.className = 'image-avatar hidden';
-  } else {
-    imagePreview.className = 'image-avatar hidden';
-    imagePlaceholder.className = 'image-avatar';
-  }
+  imageAvatar.src = urlString;
 }
 
 avatarUrl.addEventListener('input', handleInputAvatar);
@@ -35,9 +26,6 @@ createProfileForm.addEventListener('submit', function (event) {
   data.profile.location = userLocation;
   data.profile.avatarUrl = avatarUrl;
   data.profile.bio = bio;
-
-  imagePreview.className = 'image-avatar hidden';
-  imagePlaceholder.className = 'image-avatar';
 
   viewSwapDataViews('profile');
 });
@@ -120,6 +108,17 @@ function profileDOM(data) {
   p.textContent = data.profile.bio;
   divBio.appendChild(p);
 
+  var divEditButton = document.createElement('div');
+  divEditButton.setAttribute('class', 'editbutton-profile');
+  divHalf.appendChild(divEditButton);
+
+  var profileEditButtonLink = document.createElement('a');
+  profileEditButtonLink.setAttribute('href', '#');
+  profileEditButtonLink.setAttribute('class', 'button');
+  profileEditButtonLink.setAttribute('data-view', 'edit-profile');
+  profileEditButtonLink.textContent = 'EDIT';
+  divEditButton.appendChild(profileEditButtonLink);
+
   return divProfile;
 }
 
@@ -127,6 +126,7 @@ function profileDOM(data) {
 function viewSwapDataViews(dataView) {
   var divProfilesList = document.querySelectorAll('div[data-view]');
   var i;
+
   for (i = 0; i < divProfilesList.length; i++) {
     var divProfile = divProfilesList[i];
     if (dataView !== divProfile.getAttribute('data-view')) {
@@ -143,13 +143,42 @@ function viewSwapDataViews(dataView) {
     main.removeChild(document.querySelector('div[data-view="profile"]'));
     main.appendChild(profileDOM(data));
   }
+
+  if (dataView === 'edit-profile') {
+
+    document.forms[0].avatarUrl.value = data.profile.avatarUrl;
+    document.forms[0].username.value = data.profile.username;
+    document.forms[0].fullName.value = data.profile.fullName;
+    document.forms[0].location.value = data.profile.location;
+    document.forms[0].bio.value = data.profile.bio;
+
+    if (data.profile.username !== '') {
+      imageAvatar.src = data.profile.avatarUrl;
+    }
+  }
+
 }
 
 // eventListener for DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function (event) {
-  if (data.profile.username === ' ') {
+  if (data.profile.username === '') {
     viewSwapDataViews('edit-profile');
   } else if (data.profile.username) {
     viewSwapDataViews(data.view);
   }
+});
+
+// eventlistener 'click' for document
+document.addEventListener('click', function (event) {
+
+  if (event.target.tagName !== 'A') {
+    return;
+  }
+
+  if (data.profile.username !== '') {
+    viewSwapDataViews(event.target.getAttribute('data-view'));
+  } else {
+    viewSwapDataViews('edit-profile');
+  }
+
 });
