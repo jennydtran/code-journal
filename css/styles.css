@@ -55,6 +55,11 @@ button {
   justify-content: flex-end;
 }
 
+.editbutton-profile {
+  display: flex;
+  justify-content: flex-start;
+}
+
 h3 {
   margin: 0;
   padding-left: 0.3rem;

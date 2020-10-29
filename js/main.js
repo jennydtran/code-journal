@@ -120,6 +120,19 @@ function profileDOM(data) {
   p.textContent = data.profile.bio;
   divBio.appendChild(p);
 
+  var divEditButton = document.createElement('div');
+  divEditButton.setAttribute('class', 'editbutton-profile');
+  divHalf.appendChild(divEditButton);
+
+  var profileEditButtonLink = document.createElement('a');
+  profileEditButtonLink.setAttribute('href', '#');
+  profileEditButtonLink.setAttribute('data-view', 'edit-profile');
+  divEditButton.appendChild(profileEditButtonLink);
+
+  var profileEditButton = document.createElement('button');
+  profileEditButton.textContent = 'EDIT';
+  profileEditButtonLink.appendChild(profileEditButton);
+
   return divProfile;
 }
 
@@ -127,6 +140,7 @@ function profileDOM(data) {
 function viewSwapDataViews(dataView) {
   var divProfilesList = document.querySelectorAll('div[data-view]');
   var i;
+
   for (i = 0; i < divProfilesList.length; i++) {
     var divProfile = divProfilesList[i];
     if (dataView !== divProfile.getAttribute('data-view')) {
@@ -143,6 +157,23 @@ function viewSwapDataViews(dataView) {
     main.removeChild(document.querySelector('div[data-view="profile"]'));
     main.appendChild(profileDOM(data));
   }
+
+  if (dataView === 'edit-profile') {
+
+    document.forms[0].avatarUrl.value = data.profile.avatarUrl;
+    document.forms[0].username.value = data.profile.username;
+    document.forms[0].fullName.value = data.profile.fullName;
+    document.forms[0].location.value = data.profile.location;
+    document.forms[0].bio.value = data.profile.bio;
+    /*
+    avatarUrl = data.profile.avatarUrl;
+    username = data.profile.username;
+    fullName = data.profile.fullName;
+    userLocation = data.profile.location;
+    bio = data.profile.bio; */
+    imagePlaceholder.setAttribute('src', data.profile.avatarUrl);
+  }
+
 }
 
 // eventListener for DOMContentLoaded
