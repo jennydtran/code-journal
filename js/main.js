@@ -131,10 +131,6 @@ function profileDOM(data) {
   profileEditButtonLink.textContent = 'EDIT';
   divEditButton.appendChild(profileEditButtonLink);
 
-  /* var profileEditButton = document.createElement('button');
-  profileEditButton.textContent = 'EDIT';
-  profileEditButtonLink.appendChild(profileEditButton);
-*/
   return divProfile;
 }
 
@@ -184,14 +180,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 // eventlistener 'click' for document
 document.addEventListener('click', function (event) {
-  var a = document.querySelectorAll('a');
+  var links = document.getElementsByTagName('a');
 
-  for (var i = 0; i < a.length; i++) {
-    var aLink = a[i];
-    if (event.target !== aLink) {
+  for (var i = 0; i < links.length; i++) {
+    if (event.target.tagName !== links[i].tagName) {
       return;
-    } else if (event.target === aLink) {
-      viewSwapDataViews(a[i].getAttribute('data-view'));
+    } else if (event.target.tagName === links[i].tagName) {
+      viewSwapDataViews(event.target.getAttribute('data-view'));
     }
   }
 
