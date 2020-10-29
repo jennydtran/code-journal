@@ -164,7 +164,7 @@ function viewSwapDataViews(dataView) {
     document.forms[0].location.value = data.profile.location;
     document.forms[0].bio.value = data.profile.bio;
 
-    imagePlaceholder.setAttribute('src', data.profile.avatarUrl);
+    imagePlaceholder.src = data.profile.avatarUrl;
   }
 
 }
@@ -180,18 +180,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 // eventlistener 'click' for document
 document.addEventListener('click', function (event) {
-  var links = document.getElementsByTagName('a');
 
-  for (var i = 0; i < links.length; i++) {
-    if (event.target.tagName !== links[i].tagName) {
-      return;
-    } else if (event.target.tagName === links[i].tagName) {
-      if (data.profile.username === ' ') {
-        return;
-      } else if (data.profile.username) {
-        viewSwapDataViews(event.target.getAttribute('data-view'));
-      }
-    }
+  if (event.target.tagName !== 'A') {
+    return;
+  }
+
+  if (event.target.tagName === 'A' && data.profile.username) {
+    viewSwapDataViews(event.target.getAttribute('data-view'));
   }
 
 });
