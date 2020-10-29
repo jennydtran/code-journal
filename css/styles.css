@@ -40,6 +40,7 @@ fieldset {
   padding: 0;
 }
 
+.button,
 button {
   background-color: rgb(99, 179, 186);
   border: none;
@@ -134,4 +135,10 @@ textarea:focus,
 button:focus {
   outline: none;
   box-shadow: 0 0 5px rgb(42, 82, 94);
+}
+
+a:link,
+a:active,
+a:visited {
+  text-decoration: none;
 }

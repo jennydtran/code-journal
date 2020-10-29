@@ -126,13 +126,15 @@ function profileDOM(data) {
 
   var profileEditButtonLink = document.createElement('a');
   profileEditButtonLink.setAttribute('href', '#');
+  profileEditButtonLink.setAttribute('class', 'button');
   profileEditButtonLink.setAttribute('data-view', 'edit-profile');
+  profileEditButtonLink.textContent = 'EDIT';
   divEditButton.appendChild(profileEditButtonLink);
 
-  var profileEditButton = document.createElement('button');
+  /* var profileEditButton = document.createElement('button');
   profileEditButton.textContent = 'EDIT';
   profileEditButtonLink.appendChild(profileEditButton);
-
+*/
   return divProfile;
 }
 
@@ -165,12 +167,7 @@ function viewSwapDataViews(dataView) {
     document.forms[0].fullName.value = data.profile.fullName;
     document.forms[0].location.value = data.profile.location;
     document.forms[0].bio.value = data.profile.bio;
-    /*
-    avatarUrl = data.profile.avatarUrl;
-    username = data.profile.username;
-    fullName = data.profile.fullName;
-    userLocation = data.profile.location;
-    bio = data.profile.bio; */
+
     imagePlaceholder.setAttribute('src', data.profile.avatarUrl);
   }
 
@@ -183,4 +180,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
   } else if (data.profile.username) {
     viewSwapDataViews(data.view);
   }
+});
+
+// eventlistener 'click' for document
+document.addEventListener('click', function (event) {
+  var a = document.querySelectorAll('a');
+
+  for (var i = 0; i < a.length; i++) {
+    var aLink = a[i];
+    if (event.target !== aLink) {
+      return;
+    } else if (event.target === aLink) {
+      viewSwapDataViews(a[i].getAttribute('data-view'));
+    }
+  }
+
 });
