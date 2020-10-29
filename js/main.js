@@ -186,7 +186,11 @@ document.addEventListener('click', function (event) {
     if (event.target.tagName !== links[i].tagName) {
       return;
     } else if (event.target.tagName === links[i].tagName) {
-      viewSwapDataViews(event.target.getAttribute('data-view'));
+      if (data.profile.username === ' ') {
+        return;
+      } else if (data.profile.username) {
+        viewSwapDataViews(event.target.getAttribute('data-view'));
+      }
     }
   }
 
