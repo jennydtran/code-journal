@@ -70,6 +70,12 @@ button {
   margin-top: 0.7rem;
 }
 
+.newbutton-entry {
+  position: absolute;
+  top: 40%;
+  right: 0;
+}
+
 .savebutton {
   display: flex;
   justify-content: flex-end;
