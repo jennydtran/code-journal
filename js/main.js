@@ -193,17 +193,6 @@ document.addEventListener('click', function (event) {
 });
 
 // addEventListener for 'submit' for entry form
-var entryData = {
-  view: 'entries',
-  entry: {
-    entryTitle: '',
-    entryUrl: '',
-    notes: ''
-  },
-  entries: []
-};
-
-// addEventListener for 'submit' for entry form
 createEntryForm.addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -215,6 +204,6 @@ createEntryForm.addEventListener('submit', function (event) {
   entryData.entry.entryUrl = entryUrl;
   entryData.entry.notes = notes;
 
-  viewSwapDataViews('entries');
   createProfileForm.reset();
+  viewSwapDataViews('entries');
 });
