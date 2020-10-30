@@ -32,6 +32,10 @@
     margin: 0 0.75rem;
   }
 
+  .form-input.notes {
+    margin: 2.2rem 0;
+  }
+
   .column-full,
   .column-half {
     padding: 0 0.75rem;
