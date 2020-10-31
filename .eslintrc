@@ -50,7 +50,6 @@
       ],
       "globals": {
         "data": "writable",
-        "entryData": "writable"
       }
     }
   ]

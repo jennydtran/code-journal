@@ -196,13 +196,17 @@ document.addEventListener('click', function (event) {
 createEntryForm.addEventListener('submit', function (event) {
   event.preventDefault();
 
+  var entry = {};
+
   var entryUrl = document.forms[1].entryUrl.value;
   var entryTitle = document.forms[1].entryTitle.value;
   var notes = document.forms[1].notes.value;
 
-  entryData.entry.entryTitle = entryTitle;
-  entryData.entry.entryUrl = entryUrl;
-  entryData.entry.notes = notes;
+  entry.entryTitle = entryTitle;
+  entry.entryUrl = entryUrl;
+  entry.notes = notes;
+
+  data.entries.push(entry);
 
   createProfileForm.reset();
   viewSwapDataViews('entries');
