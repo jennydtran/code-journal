@@ -12,6 +12,7 @@ var data = {
   entries: []
 };
 
+// storage for profile
 var userProfileData = localStorage.getItem('javascript-local-storage');
 
 if (userProfileData !== null) {

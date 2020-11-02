@@ -10,6 +10,7 @@
 }
 
 .row {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
 }
@@ -30,6 +31,10 @@
 
   .app-name {
     margin: 0 0.75rem;
+  }
+
+  .form-input.notes {
+    margin: 2.2rem 0;
   }
 
   .column-full,

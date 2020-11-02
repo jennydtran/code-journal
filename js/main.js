@@ -1,17 +1,26 @@
 // queried DOM for some elements that might be needed
 var avatarUrl = document.forms[0].avatarUrl;
 var imageAvatar = document.querySelector('#image-avatar');
-var createProfileForm = document.querySelector('form');
+var createProfileForm = document.querySelector('form[class="edit-profile"]');
+var createEntryForm = document.querySelector('form[class="create-entry"]');
+var imageEntryUrl = document.forms[1].entryUrl;
+var imageEntry = document.querySelector('#image-entry');
 
-// change avatar placeholder to preview of new avatar
+// change avatar image and entry image to preview of new images
 function handleInputAvatar(event) {
   var urlString = event.target.value;
   imageAvatar.src = urlString;
 }
 
-avatarUrl.addEventListener('input', handleInputAvatar);
+function handleInputImageEntry(event) {
+  var urlString = event.target.value;
+  imageEntry.src = urlString;
+}
 
-// addEventListener for 'submit'
+avatarUrl.addEventListener('input', handleInputAvatar);
+imageEntryUrl.addEventListener('input', handleInputImageEntry);
+
+// addEventListener for 'submit' for profile form
 createProfileForm.addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -181,4 +190,24 @@ document.addEventListener('click', function (event) {
     viewSwapDataViews('edit-profile');
   }
 
+});
+
+// addEventListener for 'submit' for entry form
+createEntryForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var entry = {};
+
+  var entryUrl = document.forms[1].entryUrl.value;
+  var entryTitle = document.forms[1].entryTitle.value;
+  var notes = document.forms[1].notes.value;
+
+  entry.entryTitle = entryTitle;
+  entry.entryUrl = entryUrl;
+  entry.notes = notes;
+
+  data.entries.push(entry);
+
+  createProfileForm.reset();
+  viewSwapDataViews('entries');
 });

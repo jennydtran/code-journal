@@ -21,6 +21,7 @@
     <div class="row container-header">
       <h2 class="app-name">Code Journal</h2>
       <a href="#" data-view="profile">Profile</a>
+      <a href="#" data-view="entries">Entries</a>
     </div>
   </header>
   <div class="container">
@@ -29,7 +30,7 @@
         <div class="row">
           <h1 class="column-full section-heading">Edit Profile</h1>
         </div>
-        <form action="" method="">
+        <form class="edit-profile" action="" method="">
           <fieldset>
             <div class="row">
               <div class="column-half div-avatar-image">
@@ -69,6 +70,49 @@
         </form>
       </div>
       <div data-view="profile">
+      </div>
+      <div data-view="entries">
+        <div class="row">
+          <h1 class="column-full section-heading">Entries</h1>
+          <div class="newbutton-entry">
+            <a href="#" class="button" data-view="create-entry">NEW</a>
+          </div>
+        </div>
+      </div>
+      <div data-view="create-entry">
+        <div class="row">
+          <h1 class="column-full section-heading">New Entry</h1>
+        </div>
+        <form class="create-entry" action="" method="">
+          <fieldset>
+            <div class="row">
+              <div class="column-half div-entry-image">
+                <img class="image-entry" src="images/placeholder-image-square.jpg" alt="Code Journal Entry Image" id="image-entry">
+              </div>
+              <div class="column-half">
+                <div class="form-input entry">
+                  <label for="entryUrl">Image URL</label>
+                  <input type="url" name="entryUrl" required>
+                </div>
+                <div class="form-input entryTitle">
+                  <label for="entryTitle">Title</label>
+                  <input type="text" name="entryTitle" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-full">
+                <div class="form-input notes">
+                  <label for="notes">Notes</label>
+                  <textarea name="notes" rows="5" required></textarea>
+                </div>
+                <div class="form-input savebutton">
+                  <button name="submitSave" type="submit">SAVE</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
       </div>
     </main>
   </div>
