@@ -126,10 +126,23 @@ button {
 .div-entry-image,
 .div-avatar-image {
   width: 100%;
-  object-fit: contain;
 }
 
-.div-entry-image > .image-entry,
+.div-entry-image {
+  display: flex;
+  align-self: stretch;
+}
+
+.div-entry-image > img {
+  object-fit: cover;
+}
+
+.notes-paragraph {
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+.div-entry-image > img,
 .div-avatar-image > .image-avatar {
   border-radius: 6px;
   width: 100%;
@@ -175,5 +188,6 @@ div.row.container-header > a {
 }
 
 li > .row {
+  align-items: center;
   margin-bottom: 2rem;
 }
