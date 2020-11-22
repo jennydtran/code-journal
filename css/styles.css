@@ -42,7 +42,6 @@ fieldset {
 
 h3 {
   margin: 0;
-  padding-left: 0.3rem;
 }
 
 p {
@@ -53,6 +52,12 @@ p {
 
 i {
   color: rgb(99, 179, 186);
+}
+
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .button,
@@ -121,10 +126,23 @@ button {
 .div-entry-image,
 .div-avatar-image {
   width: 100%;
-  object-fit: contain;
 }
 
-.div-entry-image > .image-entry,
+.div-entry-image {
+  display: flex;
+  align-self: stretch;
+}
+
+.div-entry-image > img {
+  object-fit: cover;
+}
+
+.notes-paragraph {
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+.div-entry-image > img,
 .div-avatar-image > .image-avatar {
   border-radius: 6px;
   width: 100%;
@@ -138,6 +156,7 @@ button {
   padding-left: 4px;
 }
 
+.row.section-entrytitle,
 .row.section-username,
 .row.section-location {
   align-items: center;
@@ -166,4 +185,9 @@ a:hover {
 
 div.row.container-header > a {
   padding-left: 0.75rem;
+}
+
+li > .row {
+  align-items: center;
+  margin-bottom: 2rem;
 }

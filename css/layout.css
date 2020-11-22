@@ -45,4 +45,8 @@
   .column-half {
     width: 50%;
   }
+
+  li > .row {
+    margin-bottom: 2.5rem;
+  }
 }
