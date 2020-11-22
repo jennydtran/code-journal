@@ -207,54 +207,55 @@ createEntryForm.addEventListener('submit', function (event) {
   entry.notes = notes;
 
   data.entries.push(entry);
+  entriesList.prepend(entryDOM(entry));
   viewSwapDataViews('entries');
   createEntryForm.reset();
 });
 
 // function to render a DOM tree for entry data model
-function entryDOM(data, index) {
-    var divEntry = document.createElement('li');
-    divEntry.setAttribute('class', 'list-entry');
+function entryDOM(data) {
+  var divEntry = document.createElement('li');
+  divEntry.setAttribute('class', 'list-entry');
 
-    var divRow1 = document.createElement('div');
-    divRow1.setAttribute('class', 'row');
-    divEntry.appendChild(divRow1);
+  var divRow1 = document.createElement('div');
+  divRow1.setAttribute('class', 'row');
+  divEntry.appendChild(divRow1);
 
-    var divEntryImage = document.createElement('div');
-    divEntryImage.setAttribute('class', 'column-half div-entry-image');
-    divRow1.appendChild(divEntryImage);
+  var divEntryImage = document.createElement('div');
+  divEntryImage.setAttribute('class', 'column-half div-entry-image');
+  divRow1.appendChild(divEntryImage);
 
-    var img = document.createElement('img');
-    img.setAttribute('class', 'image-entry');
-    img.setAttribute('src', data.entries[index].entryUrl);
-    img.setAttribute('alt', 'Code Journal Entry Image');
-    img.setAttribute('id', 'image-entry');
-    divEntryImage.appendChild(img);
+  var img = document.createElement('img');
+  img.setAttribute('class', 'image-entry');
+  img.setAttribute('src', data.entryUrl);
+  img.setAttribute('alt', 'Code Journal Entry Image');
+  img.setAttribute('id', 'image-entry');
+  divEntryImage.appendChild(img);
 
-    var divColumnHalf = document.createElement('div');
-    divColumnHalf.setAttribute('class', 'column-half');
-    divRow1.appendChild(divColumnHalf);
+  var divColumnHalf = document.createElement('div');
+  divColumnHalf.setAttribute('class', 'column-half');
+  divRow1.appendChild(divColumnHalf);
 
-    var divEntryTitle = document.createElement('div');
-    divEntryTitle.setAttribute('class', 'row section-entrytitle');
-    divColumnHalf.appendChild(divEntryTitle);
+  var divEntryTitle = document.createElement('div');
+  divEntryTitle.setAttribute('class', 'row section-entrytitle');
+  divColumnHalf.appendChild(divEntryTitle);
 
-    var entryTitle = document.createElement('h3');
-    entryTitle.setAttribute('class', 'entrytitle');
-    entryTitle.textContent = data.entries[index].entryTitle;
-    divEntryTitle.appendChild(entryTitle);
+  var entryTitle = document.createElement('h3');
+  entryTitle.setAttribute('class', 'entrytitle');
+  entryTitle.textContent = data.entryTitle;
+  divEntryTitle.appendChild(entryTitle);
 
-    var divEntryNotes = document.createElement('div');
-    divEntryNotes.setAttribute('class', 'row section-entrynotes');
-    divColumnHalf.appendChild(divEntryNotes);
+  var divEntryNotes = document.createElement('div');
+  divEntryNotes.setAttribute('class', 'row section-entrynotes');
+  divColumnHalf.appendChild(divEntryNotes);
 
-    var p = document.createElement('p');
-    p.setAttribute('class', 'notes-paragraph');
-    p.textContent = data.entries[index].notes;
-    divEntryNotes.appendChild(p);
+  var p = document.createElement('p');
+  p.setAttribute('class', 'notes-paragraph');
+  p.textContent = data.notes;
+  divEntryNotes.appendChild(p);
 
-    return divEntry;
-};
+  return divEntry;
+}
 
 // variable for ol element for list-entry to append to
 var entriesList = document.querySelector('ol');
@@ -263,8 +264,8 @@ var entriesList = document.querySelector('ol');
 document.addEventListener('DOMContentLoaded', function (event) {
 
   for (var i = 0; i < data.entries.length; i++) {
-    entriesList.prepend(entryDOM(data, i));
+    entriesList.prepend(entryDOM(data.entries[i]));
   }
 
 });
-//// porblem. Doesn't automaticcal update
+/// / porblem. Doesn't automaticcal update
